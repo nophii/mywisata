@@ -1,0 +1,30 @@
+{% extends 'front/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row wrapper">
+    <div class="columns large-7 content">
+        <a href="{% url 'index' %}">Home</a>
+      <h1 class="page-title">Detail Objek</h1>
+
+      <!-- Img -->
+      <div class="blog-thumb">
+        <img src="/media/{{ artikel.img }}" alt="">
+      </div>
+      
+      <div>
+        <h2 class="sub-title">Kategori : {{artikel.kategory}}</h2>
+      </div>
+      <div>
+        <h2 class="sub-title">Nama Tempat : {{artikel.nama_tempat}}</h2>
+      </div>
+      <div>
+        <h2 class="sub-title">{{artikel.body}}</h2>
+      </div>
+      <div>
+        <h2 class="sub-title">Lokasi : {{artikel.lokasi}}</h2>
+      </div>
+    </div>
+</div>
+{% endblock content %}

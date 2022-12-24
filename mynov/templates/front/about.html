@@ -1,0 +1,31 @@
+{% extends 'front/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row content-wrapper">
+    <div class="columns large-12">
+      <div class="row wrapper">
+        <div class="columns large-7 content">
+          <h1 class="page-title">About Me</h1>
+          <div>
+            <h2 class="sub-title">Saya terinspirasi membuat website wisata Samarinda dan sekitarnya karena sebenarnya banyak tempat wisata, kuliner, dan belanja yang tidak di ketahui atau tidak begitu diketahui.</h2>
+          </div>
+          <ul class="row">
+            
+            <li class="columns large-4  about-list">
+              <div class="img-wrapper">
+                <p><img src="{% static 'front/images/myprofil.jpg' %}" alt="" class="th about-image"></p>
+              </div>
+              <h3 class="employer-name">NOVIA HIDAYATI RAMADHANI</h3>
+              <p>Perknalkan saya Novia.HR dengan NIM 2011102441233 Mahasiswa Semester 5 (lima) Jurusan S1 Teknik Informatika Kelas A</p>
+            </li>
+            
+          </ul>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

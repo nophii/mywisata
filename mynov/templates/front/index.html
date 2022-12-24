@@ -1,0 +1,111 @@
+{% extends 'front/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="slider">
+    <div class="row">
+      <div class="columns large-12">
+        <div class="row flexslider-row">
+          <div class="columns large-12">
+            <div class="flexslider">
+              <ul class="slides">
+                <li> <img src="{% static 'front/images/home1.jpg' %}" alt=""> </li>
+                <li> <img src="{% static 'front/images/depan2.jpg' %}" alt=""> </li>
+                <li> <img src="{% static 'front/images/depan3.jpg' %}" alt=""> </li>
+                <li> <img src="{% static 'front/images/depan4.jpg' %}" alt=""> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="tagline">
+  <div class="row">
+    <div class="columns large-12">
+      <div class="center">
+        <h1>Samarinda dan sekitarnya, apakah anda punya tujuan berpergian?</h1>
+        <p>Samarinda menjadi kota dengan penduduk terpadat di Kalimantan dan merupakan ibu kota provinsi Kalimantan Timur. Jika dibandingkan beberapa kota lain di Indonesia, wisata Samarinda memang belum banyak di kenal. Namnun, sebenarnya kota ini memiliki tempat wisata yang layak dikunjungi.</p>
+        <p>Jika Anda sedang merencanakan liburan bersama keluarga atau teman, kota Samarinda bisa menjadi salah satu pilihan. Di sini, Anda bisa mengunjungi beberapa wisata Samarinda alam menarik dan mempesona, maupun mencoba pengalam unik di berbagai desa budaya di Samarinda.</p>
+        <p>  </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="service-box">
+  <div class="row service">
+    {% for a in artikel %}
+    <div class="columns large-4">
+      <h1 class="service-subtitle">{{a.nama_tempat}}</h1>
+      <!-- img -->
+      
+      <!-- <div class="blog-thumb">
+        <a href="{% url 'artikel_detail' a.id %}" class="post-img hover-link">
+            <img src="/media/{{ a.img }}" alt="img">
+        </a>
+      </div> -->
+      <p><img src="{% static 'front/images/dtl.png' %}" alt="" class="threeUp"></p>
+      
+      <p>{{a.body}}</p>
+      <p> <a href="{% url 'artikel_detail' a.id %}" class="button custom">details</a> </p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="front-testimonial">
+  <div class="row">
+    <div class="columns large-12">
+      <div class="flexcar">
+        <ul class="slides">
+          <li>
+            <div class="row">
+              <div class="columns large-3"> <img src="{% static 'front/images/end1.jpg' %}" alt="" class="test-img"> </div>
+              <div class="columns large-9">
+                <h1>Kota Samarinda memiliki wilayah seluas 718 km2 dan dialiri oleh Sungai Mahakam yang merupakan sungai terbesar ke-2 di Pulau Kalimantan. </h1>
+                <p> Terdapat 10 kecamatan di Kota Samarinda, yaitu Kecamatan Palaran, Kecamatan Samarinda Ilir, Kecamatan Samarinda Kota, Kecamatan Sambutan, Kecamatan Samarinda Seberang, Kecamatan Loa Janan Ilir, Kecamatan Sungai Kunjang, Kecamatan Samarinda Ulu, Kecamatan Samarinda Utara, dan Kecamatan Sungai Pinang.  </p>
+                <div class="row">
+                  <div class="columns large-12">
+                    <p class="test-credit"><span class="name">Novia HR,</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="columns large-3"> <img src="{% static 'front/images/end2.jpg' %}" alt="" class="test-img"> </div>
+              <div class="columns large-9">
+                <h1>Kota Samarinda merupakan salah satu kota sekaligus merupakan ibu kota provinsi Kalimantan Timur, Indonesia.</h1>
+                <p> Seluruh wilayah kota ini berbatasan langsung dengan Kabupaten Kutai Kartanegara. Kota Samarinda bisa dicapai dengan perjalanan darat, laut dan udara. Dengan Sungai Mahakam yang membelah di tengah Kota Samarinda, yang dijadikan "gerbang" menuju pedalaman Kalimantan Timur.  </p>
+                <div class="row">
+                  <div class="columns large-12">
+                    <p class="test-credit"><span class="name">Novia HR,</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="columns large-3"> <img src="{% static 'front/images/end3.jpg' %}" alt="" class="test-img"> </div>
+              <div class="columns large-9">
+                <h1>Kota tepian </h1>
+                <p> Mendapat julukan Kota Tepian.Sungai Mahakam membelah kota ini sehingga sampai ke hulu sungai. Sejarah mencatat, kota ini dulunya menjadi bagian dari Kesultanan Kutai Kartanegara Ing Martadipura. Kini Samarinda berkembang menjadi pusat pemerintahan, perdagangan, dan industri. </p>
+                <div class="row">
+                  <div class="columns large-12">
+                    <p class="test-credit"><span class="name">Novia HR,</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="test-nav"> <span class="leftarrow"><img src="{% static 'front/images/leftarrow.png' %}" alt=""></span><span class="rightarrow"><img src="images/rightarrow.png" alt=""></span> </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

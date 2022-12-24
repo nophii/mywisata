@@ -1,0 +1,73 @@
+{% extends 'back/base.html' %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">    
+            <div class="col-md-12">
+                <div class="card">
+                    <form class="form-horizontal" method="POST">
+                        {% csrf_token %}
+                        <div class="card-header">
+                            <h4 class="card-title">
+                                {{title}}
+                            </h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Nama Tempat</label>
+                                <div class="col-md-9">
+                                    <!-- <input name="nama_tempat" type="text" placeholder="Nama Tempat" class="form-control" value="{{artikel.nama_tempat}}"> -->
+                                    {{forms_artikel.nama_tempat}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Body</label>
+                                <div class="col-md-9">
+                                    <!-- <textarea name="body" id="" cols="30" rows="10" class="form-control">{{artikel.body}}</textarea> -->
+                                    {{forms_artikel.body}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Lokasi</label>
+                                <div class="col-md-9">
+                                    <!-- <textarea name="lokasi" id="" cols="30" rows="10" class="form-control">{{artikel.lokasi}}</textarea> -->
+                                    {{forms_artikel.lokasi}}
+                                </div>
+                            </div> 
+                            <!-- <label for="exampleInputEmail1" class="form-label">Kategori</label>
+                            <select name="kategori" id="" class="form-control">
+                                {% for kategori in kategori %}
+                                    {% if get_produk.kategori == kategori %}
+                                        <option value="{{ kategori.nama }}" selected="selected">{{ kategori.nama }}</option>
+                                    {% else %}
+                                        <option value="{{ kategori.nama }}">{{ kategori.nama }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select> -->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Kategory</label>
+                                <div class="col-md-9">
+                                    {{forms_artikel.kategory}}
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                        <div class="card-footer text-right">
+                            <div class="form-group">
+                                <label class="col-md-3"></label>
+                                <div class="col-md-9">
+                                    <button type="submit" class="btn btn-fill btn-info">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div> <!-- end card -->
+            </div> <!--  end col-md-6  -->
+        </div> <!-- end row -->
+    </div>
+</div>
+{% endblock content %}

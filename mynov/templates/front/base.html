@@ -1,0 +1,164 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html><!--<![endif]-->
+<head>
+<title>Wisata-Kuliner-Belanja</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'front/css/foundation.min.css' %}">
+<link rel="stylesheet" href="{% static 'front/css/superfish.css' %}">
+<link rel="stylesheet" href="{% static 'front/css/stylesheet.css' %}">
+<link rel="stylesheet" href="{% static 'front/js/slider/flexslider.css' %}">
+<link rel="stylesheet" href="{% static 'front/js/slider/flexcar.css' %}">
+<link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,300' rel='stylesheet' type='text/css'>
+<script src="{% static 'front/js/vendor/custom.modernizr.js' %}"></script>
+<script>
+Modernizr.load({
+    // test if browser understands media queries
+    test: Modernizr.mq('only all'),
+    // if not load ie8-grid
+    nope: 'css/ie8-grid-foundation-4.css'
+});
+</script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="css/ie-fixes.css">
+<![endif]-->
+</head>
+<body>
+<div class="header">
+  <div class="row">
+    <div class="columns large-12">
+      <div class="row header-inner">
+        <div class="columns large-4 small-12"> <a href="{% url 'index' %}"><img src="{% static 'front/images/logoo.png' %}" alt="" class="logo"></a> </div>
+        <div class="columns large-8">
+          <nav>
+            <section>
+              <ul class="sf-menu large-12">
+                <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Me</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                <li class="has-dropdown"><a href="{% url 'deskripsi' %}">Deskripsi</a>
+                </li>        
+                <li>
+                  {% if request.user.is_anonymous %}
+                  <a href="{% url 'login' %}" class="btn btn-main btn-effect login-btn">Login</a></li>
+                  {% else %}
+                  <a href="{% url 'dashboard' %}" class="btn btn-main btn-effect login-btn">{{user}}</a>
+                  {% endif %}
+                
+              </ul>
+            </section>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns large-12 small-top-menu">
+      <div class="row">
+        <div class="columns large-12 plr0 top-nav">
+          <form name="dropdown" class="dropdown" action="#">
+            <nav>
+              <section>
+                <select name="selected" id="target" accesskey="E" onChange="goToNewPage(document.dropdown.selected)">
+                  <option value="{% url 'index' %}">home</option>
+                  <option value="{% url 'about' %}">about me</option>
+                  <option value="{% url 'blog' %}">blog</option>
+                  <option value="{% url 'gallery' %}">gallery</option>
+                  <option value="{% url 'deskripsi' %}">deskripsi</option>
+                  <option value="{% url 'login' %}">login</option>
+                </select>
+              </section>
+            </nav>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+        {% block content %}
+            
+        {% endblock content %}
+
+
+<footer class="footer">
+  <div class="row">
+    <div class="columns large-12 footer-inner">
+      <div class="row">
+        <div class="columns large-4 useful-links">
+          <div>
+            <h2 class="footer-title">Quick links</h2>
+            <ul class="footer-list">
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'about' %}">About Me</a></li>
+              <li><a href="{% url 'blog' %}">Blog</a></li>
+              <li><a href="{% url 'gallery' %}">Gallery</a></li>
+              <li><a href="{% url 'deskripsi' %}">Deskripsi</a></li>
+              <li><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="columns large-4 contact">
+          <div>
+            <h2 class="footer-title">Contactus</h2>
+            <ul class="footer-list">
+              <li><span class="small-icon"><img src="{% static 'front/images/address.png' %}" alt=""></span>Samarinda, Kalimantan Timur</li>
+              <li><span class="small-icon"><img src="{% static 'front/images/email.png' %}" alt=""></span>2011102441233.umkt.ac.id</li>
+            </ul>
+          </div>
+        </div>
+        <div class="columns large-4 about">
+          <div>
+            <h2 class="footer-title">About Me</h2>
+            <p><img src="{% static 'front/images/aboutme.jpg' %}" alt=""></p>
+            <p>Perknalkan saya Novia.HR dengan NIM 2011102441233 Mahasiswa Semester 5 (lima) Jurusan S1 Teknik Informatika Kelas A</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="credit-row">
+  <div class="row">
+    <div class="columns large-11 credit"> &copy; 2022 NoviaHR <a href="#"></a> <a href="http://topwebsitetemplates.org"></a></div>
+    <div class="columns large-1"> <img src="{% static 'front/images/toparrow.png' %}" alt="" class="scrollToTop"> </div>
+  </div>
+</div>
+<script src="{% static 'front/js/jquery.min.js' %}"></script>
+<script src="{% static 'front/js/hoverIntent.js' %}"></script>
+<script src="{% static 'front/js/superfish.js' %}"></script>
+<script src="{% static 'front/js/slider/jquery.flexslider.js' %}"></script>
+<script>
+Modernizr.load({
+    test: Modernizr.placeholder,
+    nope: 'js/placeholder.min.js'
+});
+function goToNewPage() {
+    if (document.getElementById('target').value) {
+        window.location.href = document.getElementById('target').value;
+    }
+}
+</script>
+<script>
+$(document).ready(function () {
+    $('ul.sf-menu').superfish({
+        animation: {
+            height: 'show'
+        },
+        delay: 400
+    });
+    $("img.scrollToTop").click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, "slow");
+    });
+    $('.flexslider').flexslider();
+    $('.flexcar').flexslider();
+});
+</script>
+</body>
+</html>
